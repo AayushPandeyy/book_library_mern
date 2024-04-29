@@ -13,6 +13,11 @@ class BookController{
         await book.save();
         res.status(201).json({status : true , message: "Book saved successfully"});
     }
+
+    async index(req,res){
+        const bookData = await Book.find({});
+        res.json(bookData);
+    }
 }
 
 export default BookController;
