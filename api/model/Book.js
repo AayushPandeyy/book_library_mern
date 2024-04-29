@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 // Define the schema for the Book model
 const bookSchema = new mongoose.Schema({
@@ -18,10 +18,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  coverImage: {
-    type: String,
-    required: true,
-  },
+//   coverImage: {
+//     type: String,
+//     required: true,
+//   },
   // Additional fields can be added as needed
 });
 

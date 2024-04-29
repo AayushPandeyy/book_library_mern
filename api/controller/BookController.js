@@ -1,6 +1,8 @@
-import Book from "../model/Book";
+import Book from "../model/Book.js";
 
 import dotenv from "dotenv";
+
+dotenv.config();
 
 
 class BookController{
@@ -12,3 +14,5 @@ class BookController{
         res.status(201).json({status : true , message: "Book saved successfully"});
     }
 }
+
+export default BookController;
