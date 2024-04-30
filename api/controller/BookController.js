@@ -20,4 +20,4 @@ class BookController{
     }
 }
 
-export default BookController;
+export default BookController; 
