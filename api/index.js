@@ -3,9 +3,11 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connection from './database/connection.js';
 import webRouter from "./router/web.js"
+import UserTableSeeder from './database/seeder/UserTableSeeder.js';
 dotenv.config();
 
 connection();
+UserTableSeeder.run();
 
 
 const app = express();
