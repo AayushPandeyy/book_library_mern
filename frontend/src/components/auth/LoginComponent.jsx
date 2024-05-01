@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../../css/Login.css"; // Import CSS for styling (optional)
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import API from "../../API";
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -8,37 +11,59 @@ const loginSchema = yup.object().shape({
 });
 
 export default function LoginComponent() {
-  const {register,setError, handleSubmit, reset, formState: {errors}} = useForm({
-      resolver: yupResolver(loginSchema)
+  const {
+    register,
+    setError,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(loginSchema),
   });
 
-
+  const login = (data) => {
+    API.post("/login", data)
+      .then((response) => {
+        if (response.data.emailError) {
+          setError("email", {
+            type: "manual",
+            message: response.data.emailError,
+          });
+        } else if (response.data.passwordError) {
+          setError("password", {
+            type: "manual",
+            message: response.data.passwordError,
+          });
+        } else {
+          let token = response.data.token;
+          localStorage.setItem("token", token);
+          window.location.href = "/admin";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="email">Email<a className='text-danger'>
-                        {errors.email?.message && <span>{errors.email?.message}</span>}
-                        </a></label>
-          <input
-            type="text"
-            id="email"
-            value={email}
-            {...register("email")}
-            onChange={(e) => setemail(e.target.value)}
-            required
-          />
+          <label htmlFor="email">
+            Email
+            <a className="text-danger">
+              {errors.email?.message && <span>{errors.email?.message}</span>}
+            </a>
+          </label>
+          <input type="text" id="email" {...register("email")} required />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
-            value={password}
             {...register("password")}
-            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
@@ -48,6 +73,4 @@ export default function LoginComponent() {
       </form>
     </div>
   );
-};
-
-
+}
