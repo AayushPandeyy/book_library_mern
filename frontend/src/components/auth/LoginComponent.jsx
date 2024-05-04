@@ -3,7 +3,7 @@ import "../../css/Login.css"; // Import CSS for styling (optional)
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import API from "../../API";
+import API from "../../API.jsx";
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -48,7 +48,7 @@ export default function LoginComponent() {
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(login)}>
         <div className="form-group">
           <label htmlFor="email">
             Email

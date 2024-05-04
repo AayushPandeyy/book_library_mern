@@ -4,7 +4,8 @@ import TokenVerify from "../middleware/TokenVerify.js";
 class LoginController{
    
     async login(req, res){
-        let {email, password} = req.body;
+        let {email, password} = 
+        req.body;
         let findData = await User.findOne({email: email});
         if(!findData){
             return res.json({emalError: 'Invalid email'});
