@@ -90,7 +90,7 @@ export default function Dashboard() {
             <Link to="/admin/manage-category">Manage Category</Link>
           </li> */}
                   <li>
-                    <Link to="/admin/add-books">Add Books</Link>
+                    <Link to="/admin/add-book">Add Book</Link>
                   </li>
                 </ul>
               </div>

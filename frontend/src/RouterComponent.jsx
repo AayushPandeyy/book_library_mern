@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginComponent from "./components/auth/LoginComponent.jsx";
 import Dashboard from "./components/middleware/AdminRouteMiddleware.jsx";
 import DashboardComponent from "./components/admin/DashboardComponent.jsx";
-import AddBookComponent from "./components/admin/AddUserComponent.jsx";
+import AddBookComponent from "./components/admin/AddBookComponent.jsx";
 import AddUserComponent from "./components/admin/AddUserComponent.jsx";
 
 export default function RouterComponent() {
@@ -22,6 +22,10 @@ export default function RouterComponent() {
           <Route
             path="/admin/add-user"
             element={<AddUserComponent></AddUserComponent>}
+          ></Route>
+          <Route
+            path="/admin/add-book"
+            element={<AddBookComponent></AddBookComponent>}
           ></Route>
         </Route>
       </Routes>
