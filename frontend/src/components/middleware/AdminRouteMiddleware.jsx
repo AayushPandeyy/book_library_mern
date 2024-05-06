@@ -22,7 +22,6 @@ export default function Dashboard() {
         } else {
           setIsLogin(false);
           setIsLoading(false);
-          
         }
       })
       .catch((error) => {});
