@@ -5,6 +5,7 @@ import Dashboard from "./components/middleware/AdminRouteMiddleware.jsx";
 import DashboardComponent from "./components/admin/DashboardComponent.jsx";
 import AddBookComponent from "./components/admin/AddBookComponent.jsx";
 import AddUserComponent from "./components/admin/AddUserComponent.jsx";
+import ShowUsersComponent from "./components/admin/ShowUsersComponent.jsx";
 
 export default function RouterComponent() {
   return (
@@ -26,6 +27,10 @@ export default function RouterComponent() {
           <Route
             path="/admin/add-book"
             element={<AddBookComponent></AddBookComponent>}
+          ></Route>
+          <Route
+            path="/admin/show-users"
+            element={<ShowUsersComponent></ShowUsersComponent>}
           ></Route>
         </Route>
       </Routes>
