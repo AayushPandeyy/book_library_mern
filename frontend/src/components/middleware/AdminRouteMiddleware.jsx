@@ -61,21 +61,14 @@ export default function Dashboard() {
                     <div className="companyname">
                       <h1>Book Library</h1>
                     </div>
-                    <div className="logout-section">
-                      <button onClick={logout}>Logout</button>
-                    </div>
+                    <button className="logout-button" onClick={logout}>
+                      Logout
+                    </button>
                   </div>
                 </div>
               </div>
               <div className="aside-bar">
-                <div className="admin-profle">
-                  <div className="admin-image">
-                    {/* <img src={user.image} alt="" /> */}
-                  </div>
-                  <div className="admin-info">
-                    <h1>User</h1>
-                  </div>
-                </div>
+                <div className="admin-profle"></div>
                 <ul>
                   <li>
                     <Link to="/admin">Dashboard</Link>
@@ -84,13 +77,17 @@ export default function Dashboard() {
                     <Link to="/admin/add-user">Add User</Link>
                   </li>
                   <li>
-                    <Link to="/admin/show-users">Users</Link>
+                    <Link to="/admin/show-users">List Users</Link>
                   </li>
+
                   {/* <li>
             <Link to="/admin/manage-category">Manage Category</Link>
           </li> */}
                   <li>
                     <Link to="/admin/add-book">Add Book</Link>
+                  </li>
+                  <li>
+                    <Link to="/admin/show-books">List Books</Link>
                   </li>
                 </ul>
               </div>
