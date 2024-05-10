@@ -26,12 +26,12 @@ export default function AddBookComponent() {
   });
 
   const addBook = (data) => {
-    let formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("author", data.author);
-    formData.append("description", data.description);
-    formData.append("genre", data.genre);
-    API.post("/book/", formData, {
+    // let formData = new FormData();
+    // formData.append("title", data.title);
+    // formData.append("author", data.author);
+    // formData.append("description", data.description);
+    // formData.append("genre", data.genre);
+    API.post("/book/", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

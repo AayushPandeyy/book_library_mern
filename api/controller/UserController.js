@@ -10,7 +10,7 @@ class UserController {
 
   async store(req, res) {
     const userData = await User.create({ ...req.body });
-    res.json(userData);
+    res.status(201).json({ status: true, message: "Success" });
   }
 }
 

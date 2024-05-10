@@ -26,7 +26,7 @@ export default function AddUserComponent() {
   });
 
   const addUser = (data) => {
-    API.post("/user/", data, {
+    API.post("/user", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,6 +41,9 @@ export default function AddUserComponent() {
             timer: 1500,
           });
           reset();
+        } else {
+          console.log(res.data.status);
+          console.log("Data not inserted");
         }
       })
       .catch((err) => {
