@@ -6,16 +6,16 @@ import webRouter from "./router/web.js";
 import UserTableSeeder from "./database/seeder/UserTableSeeder.js";
 dotenv.config();
 
-
 connection();
 UserTableSeeder.run();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+app.use(cors());
 
 app.use("/", webRouter);
 

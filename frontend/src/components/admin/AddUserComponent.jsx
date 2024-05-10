@@ -26,17 +26,13 @@ export default function AddUserComponent() {
   });
 
   const addUser = (data) => {
-    let formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-    formData.append("gender", data.gender);
-    API.post("/user/", formData, {
+    API.post("/user/", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {
+        console.log(res);
         if (res.data.status) {
           Swal.fire({
             icon: "success",
