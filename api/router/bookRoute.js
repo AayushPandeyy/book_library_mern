@@ -8,5 +8,6 @@ const bookInstance = new BookController();
 
 bookRoute.post("/",bookInstance.store);
 bookRoute.get("/",bookInstance.index);
+bookRoute.delete("/:id",bookInstance.destroy);
 
 export default bookRoute;

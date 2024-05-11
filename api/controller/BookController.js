@@ -18,6 +18,12 @@ class BookController{
         const bookData = await Book.find({});
         res.json(bookData);
     }
+
+    async destroy(req,res){
+        let id = req.params.id;
+        await Book.findByIdAndDelete(id);
+        return res.status(201).json({status : "true",message : "Book deleted"});
+    }
 }
 
 export default BookController; 
