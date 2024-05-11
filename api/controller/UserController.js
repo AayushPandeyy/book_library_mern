@@ -13,10 +13,36 @@ class UserController {
     res.status(201).json({ status: true, message: "Success" });
   }
 
-  async destroy(req,res){
+  async destroy(req, res) {
     let id = req.params.id;
     await User.findByIdAndDelete(id);
-    return res.status(201).json({ status: true, message: "Success"});    
+    return res.status(201).json({ status: true, message: "Success" });
+  }
+
+  async update(req, res) {
+    let id = req.params.id;
+    const { name, email, gender } = req.body;
+
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { name, email, gender },
+        { new: true }
+      );
+      if (!updatedUser) {
+        return res.status(404).send("User not found");
+      }
+
+      return res.status(201).json({ status: true, message: "Success" });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getById(req, res) {
+    let id = req.params.id;
+    const user = await User.findById(id);
+    return res.json(user);
   }
 }
 

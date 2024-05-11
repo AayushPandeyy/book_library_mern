@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../css/ShowUsers.css";
 import API from "../../API";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function ShowUsersComponent() {
   let token = localStorage.getItem("token") ?? "";
@@ -59,7 +60,14 @@ export default function ShowUsersComponent() {
                 <td>{user.role}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button className="edit-button">Edit</button>
+                  {/* <button className="edit-button"> */}
+                  <Link
+                    className="edit-button"
+                    to={`/admin/update-user/${user._id}`}
+                  >
+                    Edit
+                  </Link>
+                  {/* </button> */}
                   <button
                     className="delete-button"
                     onClick={() => deleteUser(user._id)}

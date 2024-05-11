@@ -7,7 +7,7 @@ import "../../scss/Admin.scss";
 export default function Dashboard() {
   const [isLogin, setIsLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   let token = localStorage.getItem("token") ?? "";
   const checkToken = () => {
     API.get("/login/verify-token", {

@@ -1,6 +1,6 @@
 .beautiful-table-container {
   width: 100%;
-  overflow-x:  visible;
+  overflow-x: visible;
 }
 
 .beautiful-table {
@@ -39,6 +39,7 @@
 .edit-button {
   background-color: #4caf50;
   color: white;
+  text-decoration: none;
   border: none;
 }
 
