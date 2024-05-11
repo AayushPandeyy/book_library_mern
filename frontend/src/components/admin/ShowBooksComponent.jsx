@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../css/ShowUsers.css";
 import API from "../../API";
+import Swal from "sweetalert2";
 export default function ShowBooksComponent() {
   let token = localStorage.getItem("token") ?? "";
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const getUser = () => {
+  const getBook = () => {
     API.get("/book", {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -16,8 +17,26 @@ export default function ShowBooksComponent() {
     });
   };
   useEffect(() => {
-    getUser();
+    getBook();
   }, []);
+
+  const deleteBook = (id) => {
+    API.delete(`/book/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        getBook();
+      })
+      .catch((err) => {});
+  };
   return (
     <div className="beautiful-table-container">
       <h1>List of books</h1>
@@ -41,7 +60,12 @@ export default function ShowBooksComponent() {
                 <td>{book.description}</td>
                 <td>
                   <button className="edit-button">Edit</button>
-                  <button className="delete-button">Delete</button>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteBook(book._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
