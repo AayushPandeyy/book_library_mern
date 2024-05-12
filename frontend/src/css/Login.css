@@ -22,8 +22,8 @@
   font-weight: bold;
 }
 
-.form-group input[type="text"],
-.form-group input[type="password"] {
+.login-auth-password,
+.login-auth-username {
   width: 100%;
   padding: 10px;
   border: 1px solid #ced4da;

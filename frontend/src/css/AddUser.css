@@ -35,13 +35,15 @@ input[type="email"],
 input[type="password"],
 select {
   width: 97%;
+  box-sizing: content-box;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .submit {
-  width: 100%;
+  box-sizing: content-box;
+  width: 97%;
   padding: 10px;
   background-color: #007bff;
   color: #fff;

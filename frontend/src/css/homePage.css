@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 89vh;
-  background-color: #f9f9f9; /* Light gray background */
+  height: 100vh;
+  background-color: #e2c0c0; /* Light gray background */
 }
 
 .login-box-home {
@@ -11,7 +11,7 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* White background */
+  background-color: #c0f0f3; /* White background */
 }
 
 .login-box-home h2 {
@@ -38,6 +38,7 @@
 }
 
 .login-button {
+  box-sizing: content-box;
   display: block;
   width: 100%;
   padding: 10px;

@@ -38,6 +38,7 @@
 }
 
 .register-button {
+  box-sizing: content-box;
   display: block;
   width: 100%;
   padding: 10px;

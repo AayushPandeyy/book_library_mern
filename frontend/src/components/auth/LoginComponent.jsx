@@ -56,11 +56,18 @@ export default function LoginComponent() {
               {errors.email?.message && <span>{errors.email?.message}</span>}
             </a>
           </label>
-          <input type="text" id="email" {...register("email")} required />
+          <input
+            type="text"
+            id="email"
+            className="login-auth-email"
+            {...register("email")}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
+            className="login-auth-password"
             type="password"
             id="password"
             {...register("password")}

@@ -87,6 +87,7 @@ export default function UpdateUserComponent() {
             </a>
           </label>
           <input
+          className="name-update"
             type="text"
             name="name"
             value={name}
