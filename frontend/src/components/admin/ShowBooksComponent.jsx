@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../css/ShowUsers.css";
 import API from "../../API";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 export default function ShowBooksComponent() {
   let token = localStorage.getItem("token") ?? "";
   const [books, setBooks] = useState([]);
@@ -59,7 +60,12 @@ export default function ShowBooksComponent() {
                 <td>{book.genre}</td>
                 <td>{book.description}</td>
                 <td>
-                  <button className="edit-button">Edit</button>
+                <Link
+                    className="edit-button"
+                    to={`/admin/update-book/${book._id}`}
+                  >
+                    Edit
+                  </Link>
                   <button
                     className="delete-button"
                     onClick={() => deleteBook(book._id)}

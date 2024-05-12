@@ -62,7 +62,7 @@ export default function AddBookComponent() {
               {errors.title?.message && <span>{errors.title?.message}</span>}
             </a>
           </label>
-          <input type="text" title="title" {...register("title")} required/>
+          <input type="text" title="title" {...register("title")} required />
         </div>
         <div className="form-group">
           <label htmlFor="author">
@@ -85,7 +85,8 @@ export default function AddBookComponent() {
           <input
             type="text"
             title="description"
-            {...register("description")} required
+            {...register("description")}
+            required
           />
         </div>
         <div className="form-group">
@@ -97,9 +98,9 @@ export default function AddBookComponent() {
           </label>
           <select title="genre" {...register("genre")} required>
             <option value="">Select Genre</option>
-            <option value="male">Horror</option>
-            <option value="female">Mystery</option>
-            <option value="other">Sci-Fi</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Sci-Fi">Sci-Fi</option>
           </select>
         </div>
         <button type="submit" className="submit">

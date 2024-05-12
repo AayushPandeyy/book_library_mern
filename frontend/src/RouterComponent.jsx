@@ -8,6 +8,7 @@ import ShowUsersComponent from "./components/admin/ShowUsersComponent.jsx";
 import Dashboard from "./components/middleware/AdminRouteMiddleware.jsx";
 import ShowBooksComponent from "./components/admin/ShowBooksComponent.jsx";
 import UpdateUserComponent from "./components/admin/UpdateUserComponent.jsx";
+import UpdateBookComponent from "./components/admin/UpdateBookComponent.jsx";
 
 export default function RouterComponent() {
   return (
@@ -41,6 +42,10 @@ export default function RouterComponent() {
           <Route
             path="/admin/update-user/:id"
             element={<UpdateUserComponent></UpdateUserComponent>}
+          ></Route>
+          <Route
+            path="/admin/update-book/:id"
+            element={<UpdateBookComponent></UpdateBookComponent>}
           ></Route>
         </Route>
       </Routes>
