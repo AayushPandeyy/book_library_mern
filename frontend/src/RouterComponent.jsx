@@ -11,6 +11,7 @@ import UpdateUserComponent from "./components/admin/UpdateUserComponent.jsx";
 import UpdateBookComponent from "./components/admin/UpdateBookComponent.jsx";
 import HomePageComponent from "./components/HomePageComponent.jsx";
 import RegisterPageComponent from "./components/RegisterPageComponent.jsx";
+import HomeDashboardComponent from "./components/HomeDashboardComponent.jsx";
 
 
 export default function RouterComponent() {
@@ -19,6 +20,7 @@ export default function RouterComponent() {
       <Routes>
         <Route path="/" element={<HomePageComponent />}></Route>
         <Route path="/signup" element={<RegisterPageComponent />}></Route>
+        <Route path="/home" element={<HomeDashboardComponent />}></Route>
         <Route
           path="/login"
           element={<LoginComponent></LoginComponent>}
