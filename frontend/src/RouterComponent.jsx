@@ -9,11 +9,16 @@ import Dashboard from "./components/middleware/AdminRouteMiddleware.jsx";
 import ShowBooksComponent from "./components/admin/ShowBooksComponent.jsx";
 import UpdateUserComponent from "./components/admin/UpdateUserComponent.jsx";
 import UpdateBookComponent from "./components/admin/UpdateBookComponent.jsx";
+import HomePageComponent from "./components/HomePageComponent.jsx";
+import RegisterPageComponent from "./components/RegisterPageComponent.jsx";
+
 
 export default function RouterComponent() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<HomePageComponent />}></Route>
+        <Route path="/signup" element={<RegisterPageComponent />}></Route>
         <Route
           path="/login"
           element={<LoginComponent></LoginComponent>}
