@@ -71,7 +71,16 @@ export default function HomePageComponent() {
 
   useEffect(() => {
     if (token) {
-      checkToken();
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const payload = JSON.parse(atob(base64));
+
+      const role = payload.role;
+      if (role == "user") {
+        checkToken();
+      } else {
+        setLoading(false);
+      }
     } else {
       setLoading(false);
       history("/");
