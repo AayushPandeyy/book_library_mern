@@ -44,7 +44,8 @@ export default function UpdateUserComponent() {
     });
   };
 
-  const updateUser = (id) => {
+  const updateUser = (e) => {
+    e.preventDefault();
     API.put(
       `/user/${id}`,
       { name, email, gender },
@@ -55,16 +56,19 @@ export default function UpdateUserComponent() {
       }
     )
       .then((res) => {
-        console.log("WORKING");
         Swal.fire({
           icon: "success",
           title: res.data.message,
           showConfirmButton: false,
           timer: 1500,
+          
         });
+        setTimeout(() => {
+          window.location.href = "/admin/show-users";
+        }, 1500);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
 
@@ -74,7 +78,7 @@ export default function UpdateUserComponent() {
   return (
     <div className="form-container">
       <h2>Update User</h2>
-      <form>
+      <form method="post" onSubmit={updateUser}>
         <div className="form-group">
           <label htmlFor="name">
             Name
@@ -121,7 +125,7 @@ export default function UpdateUserComponent() {
             <option value="other">Other</option>
           </select>
         </div>
-        <button type="submit" className="submit" onClick={() => updateUser(id)}>
+        <button type="submit" className="submit">
           Update
         </button>
       </form>
