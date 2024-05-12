@@ -6,8 +6,8 @@ export default function HomePageComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <div className="login-container">
-      <div className="login-box">
+    <div className="login-container-home">
+      <div className="login-box-home">
         <h2>Login to Your Account</h2>
         <form>
           <div className="input-group">

@@ -47,7 +47,7 @@ export default function LoginComponent() {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2 className="login-header">Login</h2>
       <form onSubmit={handleSubmit(login)}>
         <div className="form-group">
           <label htmlFor="email">
