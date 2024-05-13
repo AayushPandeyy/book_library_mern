@@ -78,7 +78,7 @@ export default function HomePageComponent() {
       const role = payload.role;
       if (role == "user") {
         checkToken();
-      } else {
+      }else{
         setLoading(false);
       }
     } else {

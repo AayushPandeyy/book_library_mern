@@ -2,7 +2,6 @@ import User from "../model/User.js";
 import TokenVerify from "../middleware/TokenVerify.js";
 
 
-
 class LoginController{
    
     async login(req, res){

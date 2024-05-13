@@ -61,7 +61,6 @@ export default function UpdateUserComponent() {
           title: res.data.message,
           showConfirmButton: false,
           timer: 1500,
-          
         });
         setTimeout(() => {
           window.location.href = "/admin/show-users";
@@ -87,7 +86,7 @@ export default function UpdateUserComponent() {
             </a>
           </label>
           <input
-          className="name-update"
+            className="name-update"
             type="text"
             name="name"
             value={name}

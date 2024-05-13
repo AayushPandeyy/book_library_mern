@@ -1,5 +1,6 @@
 import User from "../model/User.js";
 
+import TokenVerify from "../middleware/TokenVerify.js";
 import dotenv from "dotenv";
 
 class UserController {

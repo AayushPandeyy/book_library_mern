@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import API from "../../API.jsx";
 
+import { useNavigate } from "react-router-dom";
+
 export default function DashboardComponent() {
   const [isLogin, setIsLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   let token = localStorage.getItem("token") ?? "";
   const checkToken = () => {
@@ -39,12 +42,21 @@ export default function DashboardComponent() {
   //       .catch((error) => {});
   //   };
   useEffect(() => {
-    checkToken();
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const payload = JSON.parse(atob(base64));
+
+    const role = payload.role;
+    if (role == "admin") {
+      checkToken();
+    } else {
+      navigate("/");
+    }
     // getProfile();
   }, []);
 
   const logout = () => {
-    localStorage.clear();
+    localStorage.removeItem("token");
     window.location.href = "/login";
   };
   return (
@@ -76,7 +88,6 @@ export default function DashboardComponent() {
             </Link>
           </div>
         </div>
-        
       </div>
     </div>
   );

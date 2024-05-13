@@ -1,0 +1,44 @@
+.book-list-container {
+  display: flex;
+  justify-content: center;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.book-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 250px;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.book-details {
+  padding: 20px;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.book-author,
+.book-description,
+.book-genre {
+  margin-bottom: 5px;
+}
